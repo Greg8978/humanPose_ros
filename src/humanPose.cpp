@@ -82,9 +82,9 @@ static int getHumanLocation(tf::TransformListener& listener){
     tf::StampedTransform transform;
     try{
         ros::Time now = ros::Time::now();
-        listener.waitForTransform("/map", "/base_link",
+        listener.waitForTransform("/map", "/human_base",
                               now, ros::Duration(3.0));
-        listener.lookupTransform("/map", "/base_link",
+        listener.lookupTransform("/map", "/human_base",
                                now, transform);
         
         humanConf.dof[0] = transform.getOrigin().x();
